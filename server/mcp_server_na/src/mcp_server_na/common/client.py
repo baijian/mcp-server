@@ -17,9 +17,11 @@ except ImportError:
     import ConfigParser as configparser
 
 DESCRIBE_DIAGNOSIS = "/DescribeDiagnosisInstanceDetail"
+DESCRIBE_DIAGNOSIS_Instances = "/DescribeDiagnosisInstances"
 
 API_INFO = {
-    DESCRIBE_DIAGNOSIS : ApiInfo("POST", DESCRIBE_DIAGNOSIS, {}, {}, {})
+    DESCRIBE_DIAGNOSIS : ApiInfo("POST", DESCRIBE_DIAGNOSIS, {}, {}, {}),
+    DESCRIBE_DIAGNOSIS_Instances : ApiInfo("POST", DESCRIBE_DIAGNOSIS_Instances, {}, {}, {})
 }
 
 class NAService(Service):
@@ -80,22 +82,19 @@ class NAService(Service):
         response = self.session.request(method, url, headers=request.headers, data=request.body)
         return response
 
-    def describe_diagnose(self):
-        api = "/DescribeDiagnosisInstanceDetail"
+    def describe_diagnosis_instances(self):
+        api = DESCRIBE_DIAGNOSIS_Instances
         params = {
-            "Action": "DescribeDiagnosisInstanceDetail",
+            "Action": "DescribeDiagnosisInstances",
             "region": "cn-shanghai",
-            "DiagnosisInstanceId": "di-3og9u1gq2terk68hqmb6p3eo",
             "Version": "2020-04-01"
         }
         print(self.__request(api, params).content)
 
 if __name__ == '__main__':
-    print("hello world")
-    k = ""
-    s = ""
-
+    # k = ""
+    # s = ""
+    
     na = NAService(endpoint="vpc.cn-beijing.volcengineapi.com", access_key_id=k, access_key_secret=s,
                    schema="https", region="cn-shanghai", security_token="", timeout=10)
-    na.describe_diagnose()
-    print("====end====")
+    na.describe_diagnosis_instances()
