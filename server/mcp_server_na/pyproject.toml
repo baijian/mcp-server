@@ -5,11 +5,10 @@ description = "MCP Server for NetworkAdvisor"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mcp>=1.6.0",
-    "pydantic==2.10.6",
-    "volcengine-python-sdk==1.1.2",
-    "dynaconf==3.2.10",
-    "jsonref>=1.1.0",
+    "volcengine-python-sdk>=1.1.2",
+    "volcengine>=1.0.175",
+    "mcp[cli]>=1.6.0",
+    "requests==2.32.3",
 ]
 
 [project.scripts]
