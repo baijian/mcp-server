@@ -37,10 +37,15 @@ SaaS
   "inputSchema": {
     "type": "object",
     "required": [
+      "region",
       "resource_type",
       "resource_id"
     ],
     "properties": {
+      "region": {
+        "description": "资源所在Region",
+        "type": "string"
+      },
       "resource_type": {
         "description": "实例类型，如EIP、NAT、CLB",
         "type": "string"
@@ -126,7 +131,7 @@ python，cursor
 | 环境变量                    | 描述                    | 必填 | 默认值 |
 |-------------------------|-----------------------|----|-----|
 | `VOLCENGINE_ENDPOINT`   | 火山引擎 OpenAPI Endpoint | 是  | -   |
-| `VOLCENGINE_REGION`     | 火山引擎 VortexIP Region  | 是  | -   |
+| `VOLCENGINE_REGION`     | 火山引擎 Region           | 是  | -   |
 | `VOLCENGINE_ACCESS_KEY` | 火山引擎账号 ACCESS KEY     | 是  | -   |
 | `VOLCENGINE_SECRET_KEY` | 火山引擎账号 SECRET KEY     | 是  | -   |
 

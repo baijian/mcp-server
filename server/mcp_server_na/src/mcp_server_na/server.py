@@ -15,9 +15,9 @@ na_client = NAClient(NA_CONFIG.region, NA_CONFIG.host, NA_CONFIG.access_key, NA_
 
 
 @mcp.tool()
-def create_diagnosis_instance(resource_type: str, resource_id: str) -> dict[str, Any]:
+def create_diagnosis_instance(region: str, resource_type: str, resource_id: str) -> dict[str, Any]:
     """Create diagnose instance"""
-    return na_client.create_diagnose_instance(resource_type, resource_id)
+    return na_client.create_diagnose_instance(region, resource_type, resource_id)
 
 
 @mcp.tool()
